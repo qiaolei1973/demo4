@@ -1,4 +1,5 @@
 import * as STA from '../Util/static';
+// import {Alert} from 'react-native';
 
 export const openScanner = (checked) => {
     return {
@@ -96,6 +97,6 @@ export const fetchPosts = (action, param) => {
                     return status;
             })
             .then(json => dispatch(receivePosts(action, json)))
-            .catch(err => { console.log(err) });
+            .catch(err => { console.log('err:',err) });
     }
 }

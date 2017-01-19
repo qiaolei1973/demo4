@@ -60,7 +60,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 // }
             dispatch(fetchPosts(STA.SIGN_UP, format2FormData(param)))
                 .then((data) => alertMsg(data))
-                .catch((err) => { console.log(err) });
+                .catch((err) => { console.log('err:',err) });
         }
     }
 }

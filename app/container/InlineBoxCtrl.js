@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import {Alert} from 'react-native';
 
 import InlineBox from '../component/InlineBox';
 import { openScanner, openCombobox, fetchPosts, createItems } from '../actions';
@@ -10,30 +11,30 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const getActionName = (checked) => {
-        switch(checked){
-            case(STA.GATEWAY):
-                return STA.FIND_GATEWAYS;
-            case(STA.POINT):
-                return STA.FIND_POINTS;
-            case(STA.FEE):
-                return STA.FIND_FEES;
-            default:
-                return;
-        }
+    switch (checked) {
+        case (STA.GATEWAY):
+            return STA.FIND_GATEWAYS;
+        case (STA.POINT):
+            return STA.FIND_POINTS;
+        case (STA.FEE):
+            return STA.FIND_FEES;
+        default:
+            return;
+    }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         openCombobox: (checked) => {
-            dispatch(fetchPosts(getActionName(checked),'access_token='))
+            dispatch(fetchPosts(getActionName(checked), 'access_token='))
                 .then((data) => {
-                    return dispatch(createItems(data.posts.data,checked));
+                    return dispatch(createItems(data.posts.data, checked));
                 })
                 .then((v) => {
                     dispatch(openCombobox(checked));
                 })
                 .catch((err) => {
-                    console.log(err);
+                    Alert.alert('err:', err);
                 });
         },
         openScanner: (checked) => {

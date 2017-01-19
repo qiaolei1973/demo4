@@ -14,7 +14,7 @@ let store = createStore(
     reducers,
     applyMiddleware(
         thunkMiddleware,      //异步action
-        loggerMiddleware      //打印action日志
+       // loggerMiddleware      //打印action日志
     )
 );
 
