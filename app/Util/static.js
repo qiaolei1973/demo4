@@ -14,7 +14,7 @@ export const CAMERA_TYPE = 'back';
 export const TORCH_MODE = 'off';
 
 //actions
-export const URL = 'http://122.225.71.66:8787/hca/joy/';
+export const URL = 'http://url/';
 export const FIND_GATEWAYS = 'findGateways';
 export const FIND_POINTS = 'findPoints';
 export const FIND_FEES = 'findFeeTypes';
